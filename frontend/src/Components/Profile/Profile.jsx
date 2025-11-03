@@ -111,19 +111,26 @@ export default function Profile() {
   const confirmLogout = () => setShowConfirm(true);
 
   const logout = async () => {
-    setLoading(true);
-    const token = localStorage.getItem("access");
-    const res = await fetch(`${API}/logout/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      credentials: "include",
-      body: JSON.stringify({ refresh: localStorage.getItem("refresh") }),
-    });
-    if (res.ok) {
-      localStorage.clear();
-      navigate("/");
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("access");
+      const res = await fetch(`${API}/logout/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        credentials: "include",
+        body: JSON.stringify({ refresh: localStorage.getItem("refresh") }),
+      });
+      if (res.ok) {
+        localStorage.clear();
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error Logging out:", error);
     }
-    setLoading(false);
+    finally {
+      setLoading(false);
+      setShowConfirm(false);
+    }
   };
 
   if (!user)
