@@ -95,7 +95,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "social_network",
         "USER": "postgres",
-        "PASSWORD": "littlevedika@123",
+        "PASSWORD": "littlevedika123",
         "HOST": "db.ipsmdvhlasdteytgndtq.supabase.co",
         "PORT": "5432",
         'OPTIONS': {'sslmode': 'require'},  # important!
