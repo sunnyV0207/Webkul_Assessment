@@ -65,10 +65,10 @@ WSGI_APPLICATION = "social_network.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME", "social_network"),
+        "NAME": os.getenv("DB_NAME", "postgres"),
         "USER": os.getenv("DB_USER", "postgres"),
-        "PASSWORD": os.getenv("DB_PASSWORD", "Ashish_m@123"),
-        "HOST": os.getenv("DB_HOST", "localhost"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "littlevedika123"),
+        "HOST": os.getenv("DB_HOST", "db.ipsmdvhlasdteytgndtq.supabase.co"),
         "PORT": os.getenv("DB_PORT", "5432"),
     }
 }
