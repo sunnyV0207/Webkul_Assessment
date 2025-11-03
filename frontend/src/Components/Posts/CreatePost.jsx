@@ -6,6 +6,7 @@ export default function CreatePost({ token, onPostCreated }) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const[loading, setLoading]=useState(false);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -21,22 +22,29 @@ export default function CreatePost({ token, onPostCreated }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("description", description);
-    if (image) formData.append("image", image);
-
-    if (!description.trim() && !image) {
-      alert("Post cannot be empty. Add text or an image.");
-      return;
+    try {
+      setLoading(true);
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append("description", description);
+      if (image) formData.append("image", image);
+  
+      if (!description.trim() && !image) {
+        alert("Post cannot be empty. Add text or an image.");
+        return;
+      }
+      
+      await createPost(token, formData);
+    } catch (error) {
+      console.error("Error deleting post:", error);
     }
-    
-    await createPost(token, formData);
-
-    setDescription("");
-    setImage(null);
-    setPreview(null);
-    onPostCreated(token);
+    finally {
+      setLoading(false);
+      setDescription("");
+      setImage(null);
+      setPreview(null);
+      onPostCreated(token);
+    }
   };
 
   return (
@@ -86,7 +94,7 @@ export default function CreatePost({ token, onPostCreated }) {
           onClick={handleSubmit}
           className="bg-blue-600 text-white font-medium px-6 py-1.5 rounded-lg hover:bg-blue-700 transition"
         >
-          Post
+          {loading ? "Posting..." : "Post"}
         </button>
       </div>
     </div>
