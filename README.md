@@ -44,7 +44,7 @@ social_network_fullstack/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/ashishmehta108/social-network.git
+   git clone https://github.com/sunnyV0207/Webkul_Assessment
    cd social-network/django-project
    ```
 
