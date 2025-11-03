@@ -93,10 +93,10 @@ WSGI_APPLICATION = "social_network.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "socialdb",
+        "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": "newpassword",
-        "HOST": "localhost",
+        "PASSWORD": "littlevedika@123",
+        "HOST": "db.ipsmdvhlasdteytgndtq.supabase.co",
         "PORT": "5432",
     }
 }
