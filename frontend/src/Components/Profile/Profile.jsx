@@ -253,7 +253,7 @@ export default function Profile() {
                 disabled={loading}
                 className="px-4 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700 transition disabled:opacity-70"
               >
-                {loading ? "Deleting..." : "Delete"}
+                {loading ? "Logging out..." : "Logout"}
               </button>
             </div>
           </div>
