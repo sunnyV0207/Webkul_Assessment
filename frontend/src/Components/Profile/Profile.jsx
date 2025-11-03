@@ -111,6 +111,7 @@ export default function Profile() {
   const confirmLogout = () => setShowConfirm(true);
 
   const logout = async () => {
+    setLoading(true);
     const token = localStorage.getItem("access");
     const res = await fetch(`${API}/logout/`, {
       method: "POST",
@@ -122,6 +123,7 @@ export default function Profile() {
       localStorage.clear();
       navigate("/");
     }
+    setLoading(false);
   };
 
   if (!user)
