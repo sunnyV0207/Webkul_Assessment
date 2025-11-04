@@ -68,7 +68,7 @@ DATABASES = {
         "NAME": os.getenv("DB_NAME", "postgres"),
         "USER": os.getenv("DB_USER", "postgres"),
         "PASSWORD": os.getenv("DB_PASSWORD", "littlevedika123"),
-        "HOST": os.getenv("DB_HOST", "db.ipsmdvhlasdteytgndtq.supabase.co"),
+        "HOST": os.getenv("DB_HOST", "aws-1-ap-southeast-2.pooler.supabase.com"),
         "PORT": os.getenv("DB_PORT", "5432"),
     }
 }
