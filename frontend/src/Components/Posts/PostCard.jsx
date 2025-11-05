@@ -325,7 +325,7 @@ export default function PostCard({ post, token, user, onPostUpdate }) {
               <img
                 src={MEDIA_URL + post.image}
                 alt="Post"
-                className="w-full object-cover max-h-[400px] transition-transform duration-300 hover:scale-[1.01]"
+                className="w-full object-contain max-h-[500px] transition-transform duration-300 hover:scale-[1.01]"
               />
             </div>
           </div>
