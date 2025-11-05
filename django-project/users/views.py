@@ -134,7 +134,7 @@ class FetchProfile(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET"])
+@api_view(["GET","HEAD"])
 @permission_classes([permissions.AllowAny])
 def health(request):
     return Response({"status": "ok"}, status=status.HTTP_200_OK)
