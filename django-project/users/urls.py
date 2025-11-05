@@ -5,6 +5,7 @@ from .views import (
     CookieTokenObtainPairView,
     CookieTokenRefreshView,
     LogoutView,
+    health
 )
 from rest_framework_simplejwt.views import TokenVerifyView
 
@@ -15,4 +16,5 @@ urlpatterns = [
     path("token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("profile/", FetchProfile.as_view(), name="profile"),
+    path("health/", health, name="health"),
 ]

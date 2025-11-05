@@ -32,7 +32,7 @@ SECRET_KEY = "django-insecure-$kjf!5s^r37w(v6&dmiyqoja$97khw07jp#kxxg*#d3r=f8g%#
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "webkul-assessment.onrender.com"
+    "webkul-assessment.onrender.com",
 ]
 
 

@@ -4,12 +4,15 @@ from rest_framework.response import Response
 from .serializers import RegisterSerializer, UserSerializer
 from django.contrib.auth import get_user_model
 
+
 from .serializers import EmailTokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.decorators import api_view, permission_classes
+
 
 
 User = get_user_model()
@@ -129,3 +132,9 @@ class FetchProfile(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def health(request):
+    return Response({"status": "ok"}, status=status.HTTP_200_OK)
